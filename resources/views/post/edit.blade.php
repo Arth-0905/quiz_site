@@ -1,12 +1,10 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            問題作成
+    <div class="bg-gradient-to-t from-emerald-200 to-emerald-100">
+        <h2 class="font-semibold text-3xl text-gray-800 leading-tight text-center py-4">
+            問題更新
         </h2>
-    </x-slot>
-
-    <div class="max-w-7xl mx-auto px-6">
-        <form method="post" action="{{route('post.update', $post)}}">
+    <div class="max-w-7xl mx-auto px-6 w-4/5">
+        <form method="post" enctype='multipart/form-data' action="{{route('post.update', $post)}}">
             @csrf
             @method('patch')
             <div class="w-full flex flex-col">
@@ -14,9 +12,9 @@
                 <input type="text" name="title" class="w-auto py-2 border border-gray-300 rounded-md" id="title" value="{{old('title', $post->title)}}">
             </div>
 
-            <div enctype='multipart/form-data' class="mt-8">
+            <div class="mt-8">
                 <label for="image" class="font-semibold mt-4">画像（必要ならば）</label>
-                <input type="file" name="image">
+                <input type="file" name="image" value="{{old('path', $post->path)}}">
             </div>
 
             <div class="w-full flex flex-col">
@@ -25,7 +23,7 @@
                 id="question" cols="30" rows="5">{{old('question', $post->question)}}</textarea>
             </div>
 
-            <div>
+            <div class="mt-4">
                 <label class="label" class="font-semibold mt-4">選択肢1 : </label>
                 <input type="text" name="choices[]" class="w-auto py-2 border border-gray-300 rounded-md" id="choices" value="{{old('choices', $post->choices[0])}}">
             </div>
@@ -41,7 +39,7 @@
                 <label class="label" class="font-semibold mt-4">選択肢4 : </label>
                 <input type="text" name="choices[]" class="w-auto py-2 border border-gray-300 rounded-md" id="choices" value="{{old('choices', $post->choices[3])}}">
             </div>
-            <div>
+            <div class="mt-4">
                 <label class="label" class="font-semibold mt-4">正解の選択肢</label>
                 <select name="correct_choice">
                     <option value="1">選択肢1</option>
@@ -50,14 +48,20 @@
                     <option value="4">選択肢4</option>
                 </select>
             </div>
+            <div class="mt-4">
+                <label>
+                    <input type="checkbox" name="release" id="release" value="{{old('release', $post->release)}}"> 非公開にする
+                </label>
+                <p class="mt-2">非公開にすると自分だけが閲覧可能になり公開されません。「問題を解く」の「非公開の問題」から回答できます。</p>
+            </div>
 
-            <x-primary-button class="mt-4">
+            <x-primary-button class="mt-4 hover:bg-green-400 hover:text-black text-3xl">
                  更新する
             </x-primary-button>
         </form>
 
-        <a href="{{route('self')}}">
-            <x-primary-button class="mt-4">
+        <a href="{{url()->previous()}}">
+            <x-primary-button class="mt-4 hover:bg-gray-400">
                 戻る
             </x-primary-button>
         </a>

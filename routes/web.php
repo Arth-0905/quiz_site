@@ -37,9 +37,6 @@ Route::post('post', [PostController::class, 'store'])
 Route::get('post', [PostController::class, 'index'])
     ->name('post.index');
 
-Route::get('/', [PostController::class, 'search'])
-    ->name('search.index');
-
 Route::get('post/show/{post}', [PostController::class, 'show'])
     ->name('post.show');
 
@@ -60,5 +57,21 @@ Route::delete('post/{post}', [PostController::class, 'destroy'])
 
 Route::get('explanation', [PostController::class, 'explanation'])
     ->name('explanation');
+
+Route::get('wrong_index', [PostController::class, 'wrong'])
+    ->name('wrong_index');
+
+Route::get('private_index', [PostController::class, 'private'])
+    ->name('private');
+
+Route::get('private', [PostController::class, 'selfPrivate'])->name('selfPrivate');
+
+Route::get('public', [PostController::class, 'public'])->name('public');
+
+Route::get('wrong_show/{post}', [PostController::class, 'wrongShow'])->name('wrong_show');
+
+Route::get('wrong_answer', [PostController::class, 'wrongAnswer'])->name('wrong_answer');
+
+Route::get('onlyView', [PostController::class, 'onlyView'])->name('onlyView');
 
 require __DIR__.'/auth.php';

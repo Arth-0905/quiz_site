@@ -16,6 +16,7 @@ class Post extends Model
         'question',
         'choices',
         'correct_choice',
+        'release',
         'user_id',
     ];
 
@@ -27,5 +28,7 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-
+    public function wrong_question() {
+        return $this->hasMany(wrong_question::class);
+    }
 }
