@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="mx-auto px-6 bg-gradient-to-r from-purple-200 via-rose-100 to-purple-200">
+    <div class="mx-auto px-6 min-h-screen bg-gradient-to-r from-purple-200 via-rose-100 to-purple-200">
         <h2 class="font-semibold text-3xl text-gray-800 leading-tight text-center py-4">
             問題一覧
         </h2>
@@ -22,15 +22,10 @@
                         非公開の問題
                     </a>
                 </p>
-                <p class="ml-4 hover:text-blue-500">
-                    <a href="{{route('wrong_index')}}">
-                        間違えた問題
-                    </a>
-                </p>
             </div>
         </div>
 
-        <div class="grid grid-cols-3 space-x-3 space-y-2">
+        <div class="grid grid-cols-3 space-x-3 space-y-2 pb-4">
             @foreach($posts as $post)
             <a href="{{route('post.show', $post)}}">
                 <div class="mt-4 p-8 bg-white rounded-2xl h-80 relative hover:duration-300
@@ -48,6 +43,14 @@
                 </div>
             </a>
             @endforeach
+        </div>
+
+        <div class="flex">
+            <p class="hover:text-blue-500 mx-4">
+                <a href="{{route('dashboard')}}">
+                    メイン画面へ戻る
+                </a>
+            </p>
         </div>
         <div class="mt-4">
             {{$posts->links()}}

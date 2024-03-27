@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="bg-gradient-to-r from-emerald-200 to-emerald-100">
+    <div class="min-h-screen bg-gradient-to-r from-emerald-200 to-emerald-100 pb-2">
         <h2 class="font-semibold text-3xl text-gray-800 leading-tight text-center py-4">
             自作問題一覧→公開済み
         </h2>
@@ -71,6 +71,13 @@
             </div>
         </div>
         @endforeach
+        <div class="flex pt-4">
+            <p class="hover:text-blue-500 mx-4">
+                <a href="{{route('dashboard')}}">
+                    メイン画面へ戻る
+                </a>
+            </p>
+        </div>
         <div class="mt-4">
             {{$posts->links()}}
         </div>

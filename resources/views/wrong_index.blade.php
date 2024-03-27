@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="mx-auto px-6 bg-gradient-to-r from-purple-200 via-rose-100 to-purple-200">
+    <div class="mx-auto px-6 min-h-screen bg-gradient-to-r from-purple-200 via-rose-100 to-purple-200">
         <h2 class="font-semibold text-3xl text-center text-gray-800 leading-tight py-4">
             間違えた問題
         </h2>
@@ -11,26 +11,9 @@
                         検索
                     </x-primary-button>
             </form>
-            <div class="flex flex-2 text-right pt-4">
-                <p>
-                    <a href="{{route('post.index')}}" class="hover:text-blue-500">
-                        問題一覧
-                    </a>
-                </p>
-                <p class="ml-4">
-                    <a href="{{route('private')}}" class="hover:text-blue-500">
-                        非公開の問題
-                    </a>
-                </p>
-                <p class="ml-4">
-                    <a href="{{route('wrong_index')}}" class="hover:text-blue-500">
-                        間違えた問題
-                    </a>
-                </p>
-            </div>
         </div>
 
-        <div class="grid grid-cols-3 space-x-3 space-y-2">
+        <div class="grid grid-cols-3 space-x-3 space-y-2 pb-4">
             @foreach($posts as $post)
             <a href="{{route('wrong_show', $post)}}">
                 <div class="mt-4 p-8 bg-white rounded-2xl h-80 relative hover:duration-300
@@ -48,6 +31,13 @@
                 </div>
             </a>
             @endforeach
+        </div>
+        <div class="flex">
+            <p class="hover:text-blue-500 mx-4">
+                <a href="{{route('dashboard')}}">
+                    メイン画面へ戻る
+                </a>
+            </p>
         </div>
         <div class="mt-4">
             {{$posts->links()}}

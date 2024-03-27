@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-3xl text-gray-800 leading-tight text-center py-4">
             問題更新
         </h2>
-    <div class="max-w-7xl mx-auto px-6 w-4/5">
+    <div class="max-w-7xl mx-auto px-6 w-4/5 pb-4">
         <form method="post" enctype='multipart/form-data' action="{{route('post.update', $post)}}">
             @csrf
             @method('patch')

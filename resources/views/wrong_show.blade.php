@@ -8,7 +8,7 @@
         </h2>
     </x-slot>
 
-    <div class="bg-gradient-to-r from-purple-200 via-rose-100 to-purple-200 pb-48 pt-12">
+    <div class="bg-gradient-to-r from-purple-200 via-rose-100 to-purple-200 min-h-screen pt-12">
     <div class="w-5/6 m-auto">
         <div class="bg-white w-full rounded-2xl">
             <div class="p-4 text-center">

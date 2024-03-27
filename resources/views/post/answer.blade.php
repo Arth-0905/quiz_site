@@ -21,27 +21,27 @@
         </div>
     </x-slot>
 
-    <div class="w-full m-auto space-x-2 py-2 text-center">
-        <a href="{{route('self')}}">
-            <x-primary-button class="bg-gradient-to-r from-emerald-400 to-emerald-100 w-3/12 h-48 hover:duration-300 hover:scale-105">
-                自作問題一覧へ
+    <div class="w-full m-auto space-x-2 py-2 text-center bg-white">
+        <a href="{{route('dashboard')}}">
+            <x-primary-button class="bg-gradient-to-r from-gray-500 to-gray-100 w-5/12 h-48 hover:duration-300 hover:scale-105">
+                メイン画面へ
             </x-primary-button>
         </a>
-        <a href="{{route('post.create')}}">
-            <x-primary-button class="bg-gradient-to-r from-cyan-500 to-blue-200 w-3/12 h-48 hover:duration-300 hover:scale-105">
-                問題を作る
-            </x-primary-button>
-        </a>
-        <a href="{{route('post.index')}}">
-            <x-primary-button class="bg-gradient-to-r from-purple-400 to-fuchsia-200 w-3/12 h-48 hover:duration-300 hover:scale-105">
-                問題一覧へ
+        <a href="{{url()->previous()}}">
+            <x-primary-button class="bg-gradient-to-r from-red-500 to-orange-200 w-5/12 h-48 hover:duration-300 hover:scale-105">
+                もう一度解く
             </x-primary-button>
         </a>
     </div>
-    <div class="w-full m-auto py-2 px-2 text-center">
-        <a href="{{route('dashboard')}}">
-            <x-primary-button class="bg-gradient-to-r from-gray-500 to-slate-200 w-3/4 h-28 hover:duration-300 hover:scale-105">
-                メイン画面へ
+    <div class="w-full m-auto space-x-2 py-2 text-center bg-white">
+        <a href="{{route('post.index')}}">
+            <x-primary-button class="bg-gradient-to-r from-purple-400 to-fuchsia-200 w-5/12 h-48 hover:duration-300 hover:scale-105">
+                問題一覧
+            </x-primary-button>
+        </a>
+        <a href="{{route('private')}}">
+            <x-primary-button class="bg-gradient-to-r from-purple-400 to-fuchsia-200 w-5/12 h-48 hover:duration-300 hover:scale-105">
+                非公開の問題一覧
             </x-primary-button>
         </a>
     </div>

@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="bg-gradient-to-t from-cyan-400 to-blue-100">
+    <div class="bg-cover bg-gradient-to-t from-cyan-400 to-blue-100">
         <h2 class="font-semibold text-3xl text-gray-800 leading-tight text-center py-4">
             問題作成
         </h2>
-    <div class="max-w-7xl mx-auto px-6 w-4/5">
+    <div class="max-w-7xl mx-auto px-6 w-4/5 pb-4">
         <form method="post" action="{{route('post.store')}}" enctype='multipart/form-data'>
             @csrf
             <div class="w-full flex flex-col">
